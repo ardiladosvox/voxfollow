@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Usuario</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+
+    <style>
+        /* Estilos para las cajas de seguidores y seguidos */
+        .lista .usuario {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .lista button {
+            background-color: #ff6666;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .lista button:hover {
+            background-color: #ff3333;
+        }
+    </style>
+    <script defer>
+        // Ejemplo de datos de seguidores
+        const seguidores = [
+            { id: 1, nombre: "Juan Pérez" },
+            { id: 2, nombre: "María López" },
+            { id: 3, nombre: "Carlos Gómez" }
+        ];
+
+        // Ejemplo de datos de seguidos
+        const seguidos = [
+            { id: 1, nombre: "Ana Torres" },
+            { id: 2, nombre: "Luis Martínez" },
+            { id: 3, nombre: "Sofía Castillo" }
+        ];
+
+        // Función para mostrar los seguidores
+        function mostrarSeguidores() {
+            const listaSeguidores = document.getElementById("lista-seguidores");
+            listaSeguidores.innerHTML = ""; // Limpiar contenido previo
+
+            if (seguidores.length === 0) {
+                listaSeguidores.innerHTML = "<p>No tienes seguidores.</p>";
+                return;
+            }
+
+            seguidores.forEach((seguidor, index) => {
+                const usuarioDiv = document.createElement("div");
+                usuarioDiv.classList.add("usuario");
+
+                const nombre = document.createElement("p");
+                nombre.textContent = seguidor.nombre;
+
+                const botonEliminar = document.createElement("button");
+                botonEliminar.textContent = "Eliminar";
+                botonEliminar.onclick = () => eliminarSeguidor(index);
+
+                usuarioDiv.appendChild(nombre);
+                usuarioDiv.appendChild(botonEliminar);
+                listaSeguidores.appendChild(usuarioDiv);
+            });
+        }
+
+        // Función para mostrar los seguidos
+        function mostrarSeguidos() {
+            const listaSeguidos = document.getElementById("lista-seguidos");
+            listaSeguidos.innerHTML = ""; // Limpiar contenido previo
+
+            if (seguidos.length === 0) {
+                listaSeguidos.innerHTML = "<p>No sigues a nadie.</p>";
+                return;
+            }
+
+            seguidos.forEach((seguido, index) => {
+                const usuarioDiv = document.createElement("div");
+                usuarioDiv.classList.add("usuario");
+
+                const nombre = document.createElement("p");
+                nombre.textContent = seguido.nombre;
+
+                const botonEliminar = document.createElement("button");
+                botonEliminar.textContent = "Dejar de Seguir";
+                botonEliminar.onclick = () => eliminarSeguido(index);
+
+                usuarioDiv.appendChild(nombre);
+                usuarioDiv.appendChild(botonEliminar);
+                listaSeguidos.appendChild(usuarioDiv);
+            });
+        }
+
+        // Función para eliminar un seguidor
+        function eliminarSeguidor(index) {
+            seguidores.splice(index, 1); // Eliminar seguidor del arreglo
+            document.getElementById("seguidores-count").textContent = `${seguidores.length} Seguidores`;
+            mostrarSeguidores(); // Actualizar la lista
+        }
+
+        // Función para dejar de seguir a un usuario
+        function eliminarSeguido(index) {
+            seguidos.splice(index, 1); // Eliminar seguido del arreglo
+            document.getElementById("seguidos-count").textContent = `${seguidos.length} Seguidos`;
+            mostrarSeguidos(); // Actualizar la lista
+        }
+
+        // Mostrar los seguidores y seguidos al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            mostrarSeguidores();
+            mostrarSeguidos();
+        });
+    </script>
+</head>
+<body>
+    <h1>Perfil del Usuario</h1>
+    <div id="perfil">
+        <p><strong>Nombre:</strong> <span id="nombre">Fercho</span></p>
+        <p><strong>Correo:</strong> <span id="correo">fercho@gmail.com</span></p>
+        <p><strong>Edad:</strong> <span id="edad">23</span></p>
+        <p><strong>Carrera:</strong> <span id="carrera">Sistemas</span></p>
+        <p><strong>Semestre:</strong> <span id="semestre">3</span></p>
+        <p><strong>Biografía:</strong> <span id="biografia">Sin biografía</span></p>
+    </div>
+    <button onclick="window.location.href='/editar-perfil'">Editar Perfil</button>
+    <button onclick="window.location.href='/principal'">Ir a Publicaciones</button>
+
+    <!-- Contenedor de Seguidores y Seguidos -->
+    <div id="seguidores-seguidos">
+        <!-- Seguidores -->
+        <div id="seguidores" class="box">
+            <h3>Seguidores</h3>
+            <p id="seguidores-count">3 Seguidores</p>
+            <div id="lista-seguidores" class="lista">
+                <!-- Aquí se agregarán dinámicamente los seguidores -->
+            </div>
+        </div>
+        <!-- Seguidos -->
+        <div id="seguidos" class="box">
+            <h3>Seguidos</h3>
+            <p id="seguidos-count">3 Seguidos</p>
+            <div id="lista-seguidos" class="lista">
+                <!-- Aquí se agregarán dinámicamente los seguidos -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

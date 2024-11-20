@@ -1,0 +1,18 @@
+version: '3.3'
+
+# servicios a ejecutar
+services:
+
+  # MySQL con nombre `vox-db`
+  db:
+    image: mysql:8.0.31
+    container_name: vox-db
+    environment:
+      - MYSQL_DATABASE=vox
+      - MYSQL_USER=vox
+      - MYSQL_PASSWORD=123
+      - MYSQL_ROOT_PASSWORD=123
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'

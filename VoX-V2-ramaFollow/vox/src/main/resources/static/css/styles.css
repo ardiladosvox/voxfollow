@@ -1,0 +1,218 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fc; /* Color de fondo suave */
+    color: #333; /* Color de texto */
+}
+
+/* Estilo de los títulos */
+h1, h2 {
+    color: #6a1b9a; /* Morado oscuro para los encabezados */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo del formulario */
+form {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para los formularios */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los campos del formulario */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #6a1b9a; /* Morado para las etiquetas */
+}
+
+/* Estilo de los campos de entrada */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Estilo de los botones */
+button {
+    padding: 12px 20px;
+    background-color: #ff9800; /* Naranja brillante */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover en los botones */
+button:hover {
+    background-color: #fb8c00; /* Naranja más oscuro */
+}
+
+/* Estilo para los enlaces */
+a {
+    color: #ff9800; /* Naranja para los enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #6a1b9a; /* Morado al pasar el mouse */
+}
+
+/* Estilo de las publicaciones */
+#publicaciones div {
+    margin: 15px 0;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fondo del botón de like */
+button.like-button {
+    background-color: #ff9800;
+    margin-right: 10px;
+}
+
+/* Efecto hover para el botón de like */
+button.like-button:hover {
+    background-color: #fb8c00;
+}
+
+/* Estilo de las secciones */
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para las secciones */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de perfil */
+#perfil {
+    font-size: 20px; /* Aumenta el tamaño de la fuente en todo el perfil */
+    margin-bottom: 20px;
+}
+
+#perfil p {
+    margin-bottom: 10px;
+}
+
+#perfil span {
+    font-size: 20px; /* Igual tamaño de letra para los valores del perfil */
+    font-weight: normal; /* Quita la negrita */
+}
+
+/* Estilos para las cajas de Seguidores y Seguidos */
+#seguidores-seguidos {
+    display: flex; /* Alinea los elementos horizontalmente */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    gap: 15px; /* Espacio entre las cajas */
+}
+
+.box {
+    padding: 15px;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff;
+    width: 150px; /* Ancho fijo para las cajas */
+}
+
+h3 {
+    font-size: 16px;
+    color: #6a1b9a; /* Morado oscuro para los encabezados */
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    margin: 0;
+}
+
+#lista-seguidores .seguidor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+#lista-seguidores button {
+    background-color: #ff6666;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#lista-seguidores button:hover {
+    background-color: #ff3333;
+}
+
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-container button {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+.search-container button i {
+    font-size: 16px;
+}
+
+.like-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.like-icon {
+    font-size: 1.5em;
+    color: red;
+    margin-left: 5px;
+}

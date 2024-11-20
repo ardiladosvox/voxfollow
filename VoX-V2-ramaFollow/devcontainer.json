@@ -1,0 +1,28 @@
+{
+	"name": "Java",
+	"build": {
+	  "dockerfile": "Dockerfile",
+	  "args": {
+		"INSTALL_MAVEN": "true",
+		"INSTALL_GRADLE": "false",
+		"NODE_VERSION": "none"
+	  }
+	},
+	"customizations": {
+	  "vscode": {
+		"settings": {},
+		"extensions": [
+		  "vscjava.vscode-java-pack",
+		  "Pivotal.vscode-boot-dev-pack"
+		]
+	  }
+	},
+	"remoteUser": "vscode",
+	"features": {
+	  "docker-in-docker": "latest",
+	  "git": "os-provided",
+	  "github-cli": "latest",
+	  "ghcr.io/devcontainers/features/java:1": {},
+	  "ghcr.io/devcontainers-extra/features/maven-sdkman:2": {}
+	}
+  }

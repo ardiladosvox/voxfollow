@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+    <style>
+        /* Aseguramos que el filtro esté en la misma línea que las publicaciones */
+        #publicaciones {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #filtro-container {
+            margin-bottom: 20px; /* Espacio entre el filtro y las publicaciones */
+            align-self: flex-end; /* Alinea el filtro a la derecha */
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a la Página Principal</h1>
+
+    <!-- Contenedor de búsqueda -->
+    <div class="search-container">
+        <input type="text" placeholder="Buscar usuario..." id="searchInput">
+        <button onclick="buscarUsuarioPorCorreo()">Buscar</button>
+    </div>
+    <div id="perfilUsuario"></div>
+
+    <div id="perfilUsuario"></div>
+<div id="accionesUsuario" style="display: none;">
+    <button onclick="añadirUsuario()">Añadir Usuario</button>
+</div>
+
+    <nav>
+        <a href="/perfil" id="perfil-link">Ver Perfil</a>
+    </nav>
+
+    <!-- Sección para crear una nueva publicación -->
+    <section id="crear-publicacion">
+        <h2>Crear Nueva Publicación</h2>
+        <form id="crearPublicacionForm">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+
+            <label for="anonimo">
+                <input type="checkbox" id="anonimo" name="anonimo"> Publicar como anónimo
+            </label>
+
+            <button type="button" onclick="crearPublicacion(event)">Publicar</button> 
+        </form>
+    </section>
+
+    <!-- Sección para mostrar las publicaciones -->
+    <section id="publicaciones">
+        <h2>Publicaciones</h2>
+
+        <!-- Filtro de publicaciones en la parte superior derecha -->
+        <div id="filtro-container">
+            <label for="filtroPublicaciones">Filtrar por:</label>
+            <select id="filtroPublicaciones" onchange="filtrarPublicaciones()">
+                <option value="misPublicaciones">Mis publicaciones</option>
+                <option value="seguidores">Publicaciones de seguidores</option>
+            </select>
+        </div>
+
+        <!-- Aquí se cargarán dinámicamente las publicaciones -->
+        <div id="contenedorPublicaciones"></div>
+    </section>
+
+    <!-- Botón de cerrar sesión -->
+    <div class="logout-container">
+        <button id="logoutButton" onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+</body>
+</html>
